@@ -37,6 +37,7 @@ export class App extends Component {
   }
 
   render() {
+    const { good, neutral, bad } = this.state;
     const options = Object.keys(this.state);
     return (
       <AppWrap>
@@ -52,9 +53,9 @@ export class App extends Component {
             <Notification message={'There is no feedback'} />
           ) : (
             <Statistic
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
+              good={good}
+              neutral={neutral}
+              bad={bad}
               total={this.countTotalFeedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
