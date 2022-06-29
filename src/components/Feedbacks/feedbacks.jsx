@@ -22,9 +22,14 @@ export class Feedbacks extends Component {
       bad: prevState.bad + 1,
     }));
   };
-  totalFeedbacks() {
+  countTotalFeedback() {
     return this.state.good + this.state.neutral + this.state.bad;
   }
+
+  countPositiveFeedbackPercentage() {
+    return Math.round((this.state.good / this.countTotalFeedback()) * 100);
+  }
+
   render() {
     return (
       <section>
@@ -46,15 +51,13 @@ export class Feedbacks extends Component {
             <p>Good: {this.state.good}</p>
             <p>Neutral: {this.state.neutral}</p>
             <p>Bad: {this.state.bad}</p>
-            <p>Total:{this.totalFeedbacks()}</p>
+            <p>Total:{this.countTotalFeedback()}</p>
             <p>
               Positive feedbacks:
-              {this.totalFeedbacks() === 0 ? (
+              {this.countTotalFeedback() === 0 ? (
                 '0%'
               ) : (
-                <span>
-                  {Math.round((this.state.good / this.totalFeedbacks()) * 100)}%
-                </span>
+                <span>{this.countPositiveFeedbackPercentage()}%</span>
               )}
             </p>
           </div>
