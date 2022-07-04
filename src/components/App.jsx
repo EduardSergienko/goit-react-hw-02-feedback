@@ -42,13 +42,13 @@ export class App extends Component {
     return (
       <AppWrap>
         <GlobalStyle />
-        <Section title={'Please Leave Feedback'}>
+        <Section title="Please Leave Feedback">
           <FeedbackOptions
             options={options}
             onLeaveFeedback={this.onBtnClick}
           />
         </Section>
-        <Section title={'Statistic'}>
+        <Section title="Statistic">
           {this.countTotalFeedback() === 0 ? (
             <Notification message={'There is no feedback'} />
           ) : (
